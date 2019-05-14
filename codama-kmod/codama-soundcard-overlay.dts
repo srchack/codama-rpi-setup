@@ -1,0 +1,34 @@
+// driver for codama Mic Array compatible hardware
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2708";
+
+	fragment@0 {
+		target = <&i2s>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target-path = "/";
+		__overlay__ {
+			codama-codec {
+				#sound-dai-cells = <0>;
+				compatible = "codama,codama";
+				status = "okay";
+			};
+		};
+	};
+
+	fragment@3 {
+		target = <&sound>;
+		__overlay__ {
+			compatible = "codama,codama-soundcard";
+			i2s-controller = <&i2s>;
+			status = "okay";
+		};
+	};
+};
