@@ -4,7 +4,7 @@
 #
 pcm.i2s_16k {
     type hw
-    card sndrpisimplecar
+    card sndrpicodamasou
     device 0
     format S32_LE
     channels 2
@@ -29,7 +29,7 @@ pcm.VocalFusion {
 	}
 	control {
 	    name "Playback"
-	    card sndrpisimplecar
+	    card sndrpicodamasou
 	}
     }
 }
@@ -51,7 +51,7 @@ pcm.VF_Channel0_(L) {
 	}
 	control {
 	    name "Record"
-	    card sndrpisimplecar
+	    card sndrpicodamasou
 	}
     }
 }

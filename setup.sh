@@ -37,6 +37,7 @@ fi
 
 # Check args for asoundrc selection. Default to VF Stereo.
 cp $RPI_SETUP_DIR/resources/asoundrc_vf_codama ~/.asoundrc
+sudo cp $RPI_SETUP_DIR/resources/asoundrc_vf_codama /root/.asoundrc
 
 cp $RPI_SETUP_DIR/resources/panel ~/.config/lxpanel/LXDE-pi/panels/panel
 
