@@ -24,6 +24,10 @@ make all
 sudo make install
 popd > /dev/null
 
+if ! grep -q "dtoverlay=codama-soundcard" /boot/config.txt; then
+    sudo sed -i -e '$ a dtoverlay=codama-soundcard' /boot/config.txt
+fi
+
 
 # Move existing files to back up
 if [ -e ~/.asoundrc ] ; then
