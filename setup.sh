@@ -80,9 +80,9 @@ fi
 
 
 # insert startup so that alsamixer configures
-sed -e '$i \# Run Alsa at startup so that alsamixer configures\n' rc.local
-sed -e '$i \arecord -d 1 > /dev/null 2>&1\n' rc.local
-sed -e '$i \aplay dummy > /dev/null 2>&1\n' rc.local
+sed -e '$i \# Run Alsa at startup so that alsamixer configures\n' /etc/rc.local
+sed -e '$i \arecord -d 1 > /dev/null 2>&1\n' /etc/rc.local
+sed -e '$i \aplay dummy > /dev/null 2>&1\n' /etc/rc.local
 
 
 echo "To enable I2S, this Raspberry Pi must be rebooted."
