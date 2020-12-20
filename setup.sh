@@ -16,8 +16,13 @@ sudo apt-get install -y raspberrypi-kernel-headers
 # Build driver and insert it into the kernel
 if [ "`uname -m`" = "armv6l" ] ; then
     sed -i 's/3f203000\.i2s/20203000\.i2s/' codama-kmod/snd-soc-codama-soundcard.c
+    sed -i 's/fe203000\.i2s/20203000\.i2s/' codama-kmod/snd-soc-codama-soundcard.c
+elif [ "`cat /proc/device-tree/model | grep "Raspberry Pi 4" | wc -l`" -eq "1" ] ; then
+    sed -i 's/20203000\.i2s/fe203000\.i2s/' codama-kmod/snd-soc-codama-soundcard.c
+    sed -i 's/3f203000\.i2s/fe203000\.i2s/' codama-kmod/snd-soc-codama-soundcard.c
 else
     sed -i 's/20203000\.i2s/3f203000\.i2s/' codama-kmod/snd-soc-codama-soundcard.c
+    sed -i 's/fe203000\.i2s/3f203000\.i2s/' codama-kmod/snd-soc-codama-soundcard.c
 fi
 pushd $RPI_SETUP_DIR/codama-kmod > /dev/null
 make all
